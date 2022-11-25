@@ -23282,7 +23282,7 @@
   // src/App.jsx
   init_react_shim();
 
-  // src/components/Greet.jsx
+  // src/components/SVG.jsx
   init_react_shim();
 
   // node_modules/styled-components/dist/styled-components.browser.esm.js
@@ -24465,16 +24465,22 @@
   "undefined" != typeof navigator && "ReactNative" === navigator.product && console.warn("It looks like you've imported 'styled-components' on React Native.\nPerhaps you're looking to import 'styled-components/native'?\nRead more about this at https://www.styled-components.com/docs/basics#react-native"), "undefined" != typeof window && (window["__styled-components-init__"] = window["__styled-components-init__"] || 0, 1 === window["__styled-components-init__"] && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window["__styled-components-init__"] += 1);
   var styled_components_browser_esm_default = He;
 
-  // src/components/Greet.jsx
-  var H1 = styled_components_browser_esm_default.h1`
-  color: red;
+  // src/components/SVG.jsx
+  var SVG = styled_components_browser_esm_default.svg`
+  width: 500px;
+  height: 500px;
 `;
-  var Greet = () => /* @__PURE__ */ React.createElement(H1, null, "Hello, world!");
-  var Greet_default = Greet;
+  var SVGComp = ({ children }) => {
+    return /* @__PURE__ */ React.createElement(SVG, {
+      viewBox: "0 0 500 500",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, children);
+  };
+  var SVG_default = SVGComp;
 
   // src/App.jsx
   var App = () => {
-    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(Greet_default, null));
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(SVG_default, null));
   };
   var App_default = App;
 

@@ -1,9 +1,9 @@
-import Greet from './components/Greet';
+import SVG from './components/SVG';
 
 const App = () => {
   return (
     <div>
-      <Greet />
+      <SVG />
     </div>
   );
 };
