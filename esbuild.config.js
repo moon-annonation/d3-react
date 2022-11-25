@@ -19,6 +19,7 @@ require('esbuild')
     sourcemap: isDev,
     watch: argv.watch,
     outfile: 'dist/bundle.js',
+    inject: [path.resolve(__dirname, './react-shim.js')],
   })
   .then((result) => {
     console.log('Running on port 8080, http://localhost:8080/');
