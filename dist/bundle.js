@@ -24480,7 +24480,13 @@
 
   // src/App.jsx
   var App = () => {
-    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(SVG_default, null));
+    return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(SVG_default, null, /* @__PURE__ */ React.createElement("g", null, /* @__PURE__ */ React.createElement("rect", {
+      x: 50,
+      y: 50,
+      width: 100,
+      height: 100,
+      fill: "red"
+    }))));
   };
   var App_default = App;
 
