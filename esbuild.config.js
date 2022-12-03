@@ -16,13 +16,13 @@ require('esbuild')
   .build({
     entryPoints: ['./src/index.jsx'],
     bundle: true,
-    sourcemap: isDev,
+    sourcemap: true,
     watch: argv.watch,
     outfile: 'dist/bundle.js',
     inject: [path.resolve(__dirname, './react-shim.js')],
   })
   .then((result) => {
-    console.log('Running on port 8080, http://localhost:8080/');
+    console.log('Running on http://localhost:12345/');
   })
   .catch((server) => {
     server.stop();
