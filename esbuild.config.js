@@ -14,12 +14,14 @@ fs.writeFileSync(
 
 require('esbuild')
   .build({
-    entryPoints: ['./src/index.jsx'],
+    entryPoints: [path.resolve(__dirname, 'src')],
     bundle: true,
     sourcemap: true,
     watch: argv.watch,
+    target: 'es2016',
     outfile: 'dist/bundle.js',
     inject: [path.resolve(__dirname, './react-shim.js')],
+    loader: { '.ts': 'ts' },
   })
   .then((result) => {
     console.log('Running on http://localhost:12345/');
