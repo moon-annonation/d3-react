@@ -1,8 +1,8 @@
 import create from 'zustand';
 import { createTrackedSelector } from 'react-tracked';
 
-type Shape = 'BB' | 'Polygon' | 'Polyline';
-type Mode = 'Select' | 'Draw';
+export type Shape = 'BB' | 'Polygon' | 'Polyline';
+export type Mode = 'Select' | 'Draw';
 
 interface State {
   isDrawing: boolean;

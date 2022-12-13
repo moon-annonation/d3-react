@@ -10,7 +10,9 @@ const Objects: FC<ObjectsProps> = ({ objects }) => {
   const renderComponentByShape = (object: Object, key: number) => {
     switch (object.shape) {
       case 'BB':
-        return <BB key={key.toString()} points={object.points} />;
+        return (
+          <BB key={key.toString()} id={`bb-${key}`} points={object.points} />
+        );
       default:
         return null;
     }

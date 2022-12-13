@@ -16,29 +16,33 @@ const SVG = styled.svg`
 `;
 
 const SVGComp: FC<SVGCompProps> = ({ children }) => {
-  const { shape, isDrawing, setIsDrawing } = useStateStore();
+  const { mode, shape, isDrawing, setIsDrawing } = useStateStore();
   const { objects, addObject } = useObjectStore();
   const [points, setPoints] = useState<number[]>([]);
 
   const handlePointerDown: PointerEventHandler<SVGElement> = (event) => {
     console.log(event.clientX, event.clientY);
-    if (!isDrawing) {
-      setIsDrawing(true);
-      setPoints([event.clientX, event.clientY, event.clientX, event.clientY]);
-    } else {
-      setIsDrawing(false);
-      addObject({ shape, points });
-      setPoints([]);
+    if (mode === 'Draw') {
+      if (!isDrawing) {
+        setIsDrawing(true);
+        setPoints([event.clientX, event.clientY, event.clientX, event.clientY]);
+      } else {
+        setIsDrawing(false);
+        addObject({ shape, points });
+        setPoints([]);
+      }
     }
   };
 
   const handlePointerMove: PointerEventHandler<SVGElement> = (event) => {
-    if (isDrawing) {
-      setPoints([
-        ...points.slice(0, points.length - 2),
-        event.clientX,
-        event.clientY,
-      ]);
+    if (mode === 'Draw') {
+      if (isDrawing) {
+        setPoints([
+          ...points.slice(0, points.length - 2),
+          event.clientX,
+          event.clientY,
+        ]);
+      }
     }
   };
 

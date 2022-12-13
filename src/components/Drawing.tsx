@@ -19,7 +19,7 @@ const Drawing: FC<DrawingProps> = ({ points, setPoints }) => {
   const renderComponentByShape = () => {
     switch (shape) {
       case 'BB':
-        return <BB points={points} />;
+        return <BB id={''} points={points} />;
       default:
         return null;
     }
